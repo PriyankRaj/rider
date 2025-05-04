@@ -1,47 +1,27 @@
-# Rider Tracker Flutter App
+# Rider Tracker React App
 
-A Flutter application that displays multiple riders' locations on a Google Map.
+A React application that displays multiple riders' locations on a Google Map.
 
 ## Setup Instructions
 
-1. Install Flutter and set up your development environment
+1. Install Node.js and npm
 2. Clone this repository
-3. Run `flutter pub get` to install dependencies
-4. Replace `YOUR_API_ENDPOINT` in `lib/main.dart` with your actual API endpoint
-5. Add your Google Maps API key to the Android and iOS configurations
-
-### Android Setup
-Add your Google Maps API key to `android/app/src/main/AndroidManifest.xml`:
-```xml
-<manifest ...>
-    <application ...>
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY"/>
-```
-
-### iOS Setup
-Add your Google Maps API key to `ios/Runner/AppDelegate.swift`:
-```swift
-import UIKit
-import Flutter
-import GoogleMaps
-
-@UIApplicationMain
-@objc class AppDelegate: FlutterAppDelegate {
-  override func application(
-    _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-  ) -> Bool {
-    GMSServices.provideAPIKey("YOUR_API_KEY")
-    GeneratedPluginRegistrant.register(with: self)
-    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
-  }
-}
-```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Replace `YOUR_GOOGLE_MAPS_API_KEY` in `src/App.js` with your Google Maps API key
+5. Start the backend server:
+   ```bash
+   npm run server
+   ```
+6. In a new terminal, start the development server:
+   ```bash
+   npm start
+   ```
 
 ## API Response Format
-The API should return a JSON array of rider objects in the following format:
+The API returns a JSON array of 4 rider objects with random locations in the following format:
 ```json
 [
   {
@@ -53,9 +33,37 @@ The API should return a JSON array of rider objects in the following format:
     "id": "rider2",
     "latitude": 37.7833,
     "longitude": -122.4167
+  },
+  {
+    "id": "rider3",
+    "latitude": 37.7750,
+    "longitude": -122.4184
+  },
+  {
+    "id": "rider4",
+    "latitude": 37.7844,
+    "longitude": -122.4157
   }
 ]
 ```
 
-## Running the App
-Run `flutter run` to start the application.
+## Features
+- Real-time display of 4 riders on the map
+- Info windows showing rider details when markers are clicked
+- Automatic refresh every 30 seconds
+- Manual refresh button
+- Error handling and display
+- Responsive design
+
+## Dependencies
+- React
+- @react-google-maps/api
+- Axios
+- Express.js (for the test backend)
+- CORS (for the test backend)
+
+## Building for Production
+To create a production build:
+```bash
+npm run build
+```
