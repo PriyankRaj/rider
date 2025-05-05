@@ -17,7 +17,7 @@ app.get('/test-route', async (req, res) => {
   try {
     const origin = '17.4225,78.4512'; // Mall
     const destination = '17.4533,78.4677'; // Airport
-    const apiKey = "AIzaSyDWAVtHEH-0aA92ETZ1RuUgPpZzh4wJ4Ns";
+    const apiKey = <<API Key here>>;
     
     const response = await axios.get(
       `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&mode=driving&key=${apiKey}`
